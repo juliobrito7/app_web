@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>List Of Classrooms</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img class="logo" src="/cropped-Logo.png" alt="" width="65" height="65">
+            UNSTA
+        </a>
+        <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Unsta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Classroom</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row">
+        <h1>List Of Classrooms</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-3">
+            <a th:href="@{/aulas/nueva}" class="btn btn-primary btn-sm mb3">Agregar aula</a>
+        </div>
+    </div>
+    <br>
+    <table class="table table-striped table-bordered">
+        <thead class="table table-dark table-sm">
+        <tr>
+            <th>Aula</th>
+            <th>Sede</th>
+            <th>Profesor</th>
+            <th>Carrera</th>
+            <th>Clase</th>
+            <th>Fecha</th>
+            <th>Hora Inicio</th>
+            <th>Hora Fin</th>
+            <th>Acciones</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="aula : ${aulas}">
+            <td th:text="${aula.nombre_aula}">Aula</td>
+            <td th:text="${aula.sede}">Sede</td>
+            <td th:text="${aula.profesor}">Profesor</td>
+            <td th:text="${aula.carrera}">Carrera</td>
+            <td th:text="${aula.clase}">Clase</td>
+            <td th:text="${aula.fecha}">Fecha</td>
+            <td th:text="${aula.hora_inicio}">Hora Inicio</td>
+            <td th:text="${aula.hora_fin}">Hora Fin</td>
+            <td>
+                <a th:href="@{/aulas/editar/{id}(id=${aula.id})}" class="btn btn-info">Editar</a>
+                <a th:href="@{/aulas/{id}(id=${aula.id})}" class="btn btn-danger">Eliminar</a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+</body>
+</html>

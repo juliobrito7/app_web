@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Classroom Registration</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+          integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="#">
+            <img class="logo" src="/cropped-Logo.png" alt="" width="65" height="65">
+            UNSTA
+        </a>
+        <button class=" navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="#">Unsta</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Classroom</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6 col-md-6 col-sm-6 container justify-content-center card">
+            <h1 class="text-center">Classroom Registration</h1>
+            <div class="card-body">
+                <form th:action="@{/aulas}" th:object="${aula}" method="POST">
+                    <div class="form-group">
+                        <label>Aula : </label>
+                        <input type="text" name="nombre_aula" th:field="*{nombre_aula}" class="form-control"
+                               placeholder="Digite el aula" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Sede : </label>
+                        <input type="text" name="sede" th:field="*{sede}" class="form-control"
+                               placeholder="Digite la sede" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Profesor : </label>
+                        <input type="text" name="profesor" th:field="*{profesor}" class="form-control"
+                               placeholder="Digite el profesor" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Carrera : </label>
+                        <input type="text" name="carrera" th:field="*{carrera}" class="form-control"
+                               placeholder="Digite la carrera" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Clase : </label>
+                        <input type="text" name="clase" th:field="*{clase}" class="form-control"
+                               placeholder="Digite la clase" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Fecha : </label>
+                        <input type="date" name="fecha" th:field="*{fecha}" class="form-control"
+                               placeholder="Digite la fecha" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Hora Inicio : </label>
+                        <input type="time" name="hora_inicio" th:field="*{hora_inicio}" class="form-control"
+                               placeholder="Digite la hora de inicio" required>
+                    </div>
+                    <br>
+                    <div class="form-group">
+                        <label>Hora Fin : </label>
+                        <input type="time" name="hora_fin" th:field="*{hora_fin}" class="form-control"
+                               placeholder="Digite la hora de finalizacion" required>
+                    </div>
+                    <br>
+                    <div class="box-footer">
+                        <button class="btn btn-success">Guardar</button>
+                    </div>
+                </form>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
